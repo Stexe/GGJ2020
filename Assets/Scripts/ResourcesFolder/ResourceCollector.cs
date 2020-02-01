@@ -11,6 +11,10 @@ public class ResourceCollector : MonoBehaviour
     /// </summary>
     public float resourceCollectionDistance = 0.5f;
     /// <summary>
+    /// Should this collect even if the resource was just thrown? True for things that consume the resources, generally
+    /// </summary>
+    public bool ignoreThrownCollectCooldown = false;
+    /// <summary>
     /// Optional ResourceHolder to connect this to
     /// </summary>
     private ResourceHolder resourceHolder;
@@ -35,7 +39,7 @@ public class ResourceCollector : MonoBehaviour
         resourceColliders = Physics2D.OverlapCircleAll(transform.position, resourceCollectionDistance, ~LayerMask.NameToLayer("Resource"));
         foreach (Collider2D collider in resourceColliders)
         {
-            if (collider.GetComponent<ResourceObject>() != null && collider.GetComponent<ResourceObject>().IsAttractable())
+            if (collider.GetComponent<ResourceObject>() != null && collider.GetComponent<ResourceObject>().IsAttractable() || ignoreThrownCollectCooldown)
             {
                 //if that resourceholder is full (optional), don't collect it
                 if (resourceHolder != null && resourceHolder.GetResourceAmount(collider.GetComponent<ResourceObject>().type) >= resourceHolder.maxResources) continue;

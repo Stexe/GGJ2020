@@ -317,6 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ff7e1062cc259488c4b15a4efbdc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodBar: {fileID: 1706053591481418910}
+  crystalBar: {fileID: 1706053590903326266}
+  metalBar: {fileID: 1706053591098465053}
+  resourceHolder: {fileID: 0}
 --- !u!1 &1706053590724741141
 GameObject:
   m_ObjectHideFlags: 0

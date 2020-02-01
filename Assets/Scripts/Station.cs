@@ -35,7 +35,7 @@ public class Station : MonoBehaviour
         if (!resourceHolder.HasResources()) partialResourceConsumption = 0;
     }
 
-    public void ConsumeNextResource()
+    private void ConsumeNextResource()
     {
         resourceHolder.ModifyResourceAmount(currentResourceType, -1);
         switch(currentResourceType)

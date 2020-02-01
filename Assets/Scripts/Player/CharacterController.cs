@@ -164,6 +164,25 @@ public class CharacterController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * currentJumpHoldVelocity);
         }
+
+
+        // Get the velocity
+        Vector2 horizontalMove = rb.velocity;
+        // Don't use the vertical velocity
+        horizontalMove.y = 0;
+        // Calculate the approximate distance that will be traversed
+        float distance = horizontalMove.magnitude * Time.fixedDeltaTime;
+        // Normalize horizontalMove since it should be used to indicate direction
+        horizontalMove.Normalize();
+        RaycastHit hit;
+
+        // Check if the body's current velocity will result in a collision
+        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, boxCollider.size, 0, horizontalMove, distance, 1 << LayerMask.NameToLayer("Ground"));
+        if(boxCast.collider != null)
+        {
+            // If so, stop the movement
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     /// <summary>
