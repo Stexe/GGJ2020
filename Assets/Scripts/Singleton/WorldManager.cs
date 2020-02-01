@@ -40,8 +40,8 @@ public class WorldManager : Singleton<WorldManager>
     public void Update()
     {
 
-        //globalTime = globalTime + Time.deltaTime;
-        //globalHUDText.text = "Score: " + currentScore;
+        globalTime = globalTime + Time.deltaTime;
+        globalHUDText.text = "Score: " + currentScore;
 
     }
 
