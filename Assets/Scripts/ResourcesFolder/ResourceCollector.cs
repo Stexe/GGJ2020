@@ -10,6 +10,10 @@ public class ResourceCollector : MonoBehaviour
     /// From how far away can this object collect resources?
     /// </summary>
     public float resourceCollectionDistance = 0.5f;
+    /// <summary>
+    /// Optional ResourceHolder to connect this to
+    /// </summary>
+    private ResourceHolder resourceHolder;
 
     [System.Serializable]
     public class ResourceCollectEvent : UnityEvent<ResourceObject.ResourceType> { }
@@ -21,7 +25,7 @@ public class ResourceCollector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        resourceHolder = GetComponent<ResourceHolder>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,9 @@ public class ResourceCollector : MonoBehaviour
         {
             if (collider.GetComponent<ResourceObject>() != null && collider.GetComponent<ResourceObject>().IsAttractable())
             {
+                //if that resourceholder is full (optional), don't collect it
+                if (resourceHolder != null && resourceHolder.GetResourceAmount(collider.GetComponent<ResourceObject>().type) >= resourceHolder.maxResources) continue;
+
                 onCollect.Invoke(collider.GetComponent<ResourceObject>().type);
                 collider.GetComponent<ResourceObject>().Collect();
             }
