@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceController : MonoBehaviour
 {
-	public enum ResourceType { TypeA, TypeB, TypeC };
+	public enum ResourceType { Wood, Crystal, Metal };
 
 	[SerializeField]
 	private ResourceType type;
