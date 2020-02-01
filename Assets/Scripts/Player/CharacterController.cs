@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-public class PlayerController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
 
     public int playerNum = 0;
@@ -66,7 +66,10 @@ public class PlayerController : MonoBehaviour
             verticalInput = player.GetAxis("Vertical");
             aimHorizontalInput = player.GetAxis("AimHorizontal");
             aimVerticalInput = player.GetAxis("AimVertical");
-            aimDirection = new Vector2(aimHorizontalInput, aimVerticalInput).normalized;
+            if (aimHorizontalInput != 0 && aimVerticalInput != 0)
+            {
+                aimDirection = new Vector2(aimHorizontalInput, aimVerticalInput).normalized;
+            }
             throwInput = player.GetButton("Throw");
             interactInput = player.GetButton("Interact");
             jumpInput = player.GetButton("Jump");
