@@ -34,10 +34,6 @@ public class ResourceThrower : MonoBehaviour
     /// The random variation in throw strength
     /// </summary>
     public float strengthVariation = 2;
-    /// <summary>
-    /// From how far away can this player collect resources?
-    /// </summary>
-    public float resourceCollectionDistance = 0.5f;
 
 	[SerializeField]
 	private GameObject woodBubblePrefab;
@@ -62,8 +58,6 @@ public class ResourceThrower : MonoBehaviour
     private float throwTimer;
     private float throwDelay;
     private float throwDelayFalloffTimer;
-
-    private Collider2D[] resourceColliders;
 
     // Start is called before the first frame update
     void Start()
@@ -122,19 +116,6 @@ public class ResourceThrower : MonoBehaviour
         {
             throwTimer -= Time.deltaTime;
         }
-
-
-        //collect nearby resources
-        resourceColliders = Physics2D.OverlapCircleAll(transform.position, resourceCollectionDistance, ~LayerMask.NameToLayer("Resource"));
-        foreach (Collider2D collider in resourceColliders)
-        {
-            if (collider.GetComponent<ResourceObject>() != null && collider.GetComponent<ResourceObject>().IsAttractable())
-            {
-                ModifyResourceAmount(collider.GetComponent<ResourceObject>().type, 1);
-                collider.GetComponent<ResourceObject>().Collect();
-            }
-        }
-
     }
 
     public int GetResourceAmount(ResourceObject.ResourceType resource)
@@ -145,5 +126,10 @@ public class ResourceThrower : MonoBehaviour
     public void ModifyResourceAmount(ResourceObject.ResourceType resource, int amount)
     {
         resourceAmounts[resource] += amount;
+    }
+
+    public void AddResource(ResourceObject.ResourceType resource)
+    {
+        ModifyResourceAmount(resource, 1);
     }
 }

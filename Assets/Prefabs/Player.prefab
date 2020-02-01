@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5931433781299049204}
   - component: {fileID: 5931433781299049207}
   - component: {fileID: 6504534680738699052}
+  - component: {fileID: 255718398231654552}
   - component: {fileID: 6702464856696714578}
   - component: {fileID: 5931433781299049205}
   - component: {fileID: 3950987763156241696}
@@ -57,6 +58,8 @@ MonoBehaviour:
   jumpImpulse: 7
   jumpHoldVelocity: 7
   jumpHoldVelocityDecay: 7
+  jumpParticlesPrefab: {fileID: 0}
+  landParticlesPrefab: {fileID: 0}
 --- !u!114 &6504534680738699052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,16 +82,44 @@ MonoBehaviour:
   throwDelayMax: 0.2
   throwDelayMin: 0.02
   throwDelayFalloffTime: 3
-  spinMax: 3
+  spinMax: 0.5
   strength: 13
   strengthVariation: 4
-  resourceCollectionDistance: 0.5
   woodBubblePrefab: {fileID: 4525248730670980285, guid: add7df2b37e97da4a82e16df6e923932,
     type: 3}
   crystalBubblePrefab: {fileID: 1012687775177679444, guid: 189cfe82b9faace48863ccf2e8b56043,
     type: 3}
   metalBubblePrefab: {fileID: 4051447161360271789, guid: 288173bc06f327f44a576d38ea4e4df0,
     type: 3}
+  bubbleOffset: {x: 0, y: 0, z: 0}
+  bubbleFollowTightness: 0
+--- !u!114 &255718398231654552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931433781299049206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce4e7fd1eac2bc4fb59d9443c4b0a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceCollectionDistance: 0.3
+  onCollect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6504534680738699052}
+        m_MethodName: AddResource
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6702464856696714578
 MonoBehaviour:
   m_ObjectHideFlags: 0
