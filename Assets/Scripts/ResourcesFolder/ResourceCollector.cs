@@ -39,7 +39,7 @@ public class ResourceCollector : MonoBehaviour
         resourceColliders = Physics2D.OverlapCircleAll(transform.position, resourceCollectionDistance, ~LayerMask.NameToLayer("Resource"));
         foreach (Collider2D collider in resourceColliders)
         {
-            if (collider.GetComponent<ResourceObject>() != null && collider.GetComponent<ResourceObject>().IsAttractable() || ignoreThrownCollectCooldown)
+            if (collider.GetComponent<ResourceObject>() != null && (collider.GetComponent<ResourceObject>().IsAttractable() || ignoreThrownCollectCooldown))
             {
                 //if that resourceholder is full (optional), don't collect it
                 if (resourceHolder != null && resourceHolder.GetResourceAmount(collider.GetComponent<ResourceObject>().type) >= resourceHolder.maxResources) continue;
