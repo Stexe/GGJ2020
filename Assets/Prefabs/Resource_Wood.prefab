@@ -81,6 +81,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 743175913774998403, guid: dc968b6d955de4b428a97dd5df2fd4dc,
+        type: 3}
+      propertyPath: collectParticlesPrefab
+      value: 
+      objectReference: {fileID: 4704492146842181520, guid: d89bc60802330ea44b62d677e1fff2cb,
+        type: 3}
     - target: {fileID: 5791374492793327488, guid: dc968b6d955de4b428a97dd5df2fd4dc,
         type: 3}
       propertyPath: m_LocalPosition.x
