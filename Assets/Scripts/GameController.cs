@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
     private void Start()
     {
 
-
         FunctionPeriodic.Create(() =>
         {
             if (WorldManager.Instance.robotHealth > 0.001f)
