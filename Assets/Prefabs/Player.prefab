@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 5931433781299049204}
   - component: {fileID: 5931433781299049207}
   - component: {fileID: 6504534680738699052}
+  - component: {fileID: 6702464856696714578}
   - component: {fileID: 5931433781299049205}
   - component: {fileID: 3950987763156241696}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,9 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6f428d558b7bc46a63736952a0b404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodAmount: 100
-  crystalAmount: 0
-  metalAmount: 0
   woodPrefab: {fileID: 5667766012579651774, guid: d160a21d8d96fd940a3488e6a0b139eb,
     type: 3}
   crystalPrefab: {fileID: 5169332975836214858, guid: 182d925bd46f0ac4a81bfc654a145f41,
@@ -82,8 +80,24 @@ MonoBehaviour:
   throwDelayMin: 0.02
   throwDelayFalloffTime: 3
   spinMax: 3
-  strength: 15
+  strength: 13
   strengthVariation: 4
+  resourceCollectionDistance: 0.5
+--- !u!114 &6702464856696714578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931433781299049206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52485849f0079874495bc8bf6f4ae376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 4
+  strength: 20
+  ignoreThrownAttractCooldown: 0
 --- !u!50 &5931433781299049205
 Rigidbody2D:
   serializedVersion: 4

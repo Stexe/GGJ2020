@@ -119,7 +119,7 @@ public class CharacterController : MonoBehaviour
         currentJumpHoldVelocity = Mathf.Max(0, currentJumpHoldVelocity - jumpHoldVelocityDecay * Time.deltaTime);
 
         //are we grounded?
-        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, boxCollider.size, 0, Vector2.down, 0.02f, ~LayerMask.NameToLayer("Ground"));
+        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, boxCollider.size, 0, Vector2.down, 0.02f, 1 << LayerMask.NameToLayer("Ground"));
         if (boxCast.collider != null)
         {
             isGrounded = true;
