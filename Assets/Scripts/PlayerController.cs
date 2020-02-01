@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public int playerNum = 0;
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D rb;
     public BoxCollider2D boxCollider;
     public float speed = 10;
     public float acceleration = 0.2f;
@@ -29,7 +29,11 @@ public class PlayerController : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
+    private float aimHorizontalInput;
+    private float aimVerticalInput;
     private bool jumpInput = false;
+    private bool throwInput = false;
+    private bool interactInput = false;
     /// <summary>
     /// Remains true for the duration of the player holding the jump button, and then is false until the player hits the ground again
     /// </summary>
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private float currentSpeed = 0;
     private bool isGrounded = false;
+    private Vector2 aimDirection = new Vector2(1, 0);
 
 
     // Start is called before the first frame update
@@ -59,16 +64,22 @@ public class PlayerController : MonoBehaviour
         {
             horizontalInput = player.GetAxis("Horizontal");
             verticalInput = player.GetAxis("Vertical");
+            aimHorizontalInput = player.GetAxis("AimHorizontal");
+            aimVerticalInput = player.GetAxis("AimVertical");
+            aimDirection = new Vector2(aimHorizontalInput, aimVerticalInput).normalized;
+            throwInput = player.GetButton("Throw");
+            interactInput = player.GetButton("Interact");
             jumpInput = player.GetButton("Jump");
             if (player.GetButtonDown("Jump") && isGrounded)
             {
                 //apply an impulse when the player presses jump
-                rigidbody.AddForce(Vector2.up * jumpImpulse, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.up * jumpImpulse, ForceMode2D.Impulse);
                 jumpHold = true;
                 isGrounded = false;
                 currentJumpHoldVelocity = jumpHoldVelocity;
             }
             if (!jumpInput) jumpHold = false;
+
         }
 
         //deceleration
@@ -119,12 +130,47 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //horizontal speed
-        rigidbody.velocity = new Vector2(currentSpeed * speed, rigidbody.velocity.y);
+        rb.velocity = new Vector2(currentSpeed * speed, rb.velocity.y);
 
         if(jumpHold)
         {
-            rigidbody.AddForce(Vector2.up * currentJumpHoldVelocity);
+            rb.AddForce(Vector2.up * currentJumpHoldVelocity);
         }
     }
 
+    /// <summary>
+    /// Is the player standing on the ground?
+    /// </summary>
+    /// <returns></returns>
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
+    /// <summary>
+    /// Is the player holding the throw resource button?
+    /// </summary>
+    /// <returns></returns>
+    public bool IsThrowingResource()
+    {
+        return throwInput;
+    }
+
+    /// <summary>
+    /// Is the player holding the interact button?
+    /// </summary>
+    /// <returns></returns>
+    public bool IsInteracting()
+    {
+        return interactInput;
+    }
+
+    /// <summary>
+    /// Get the normalized aim direction
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 GetAimDirection()
+    {
+        return aimDirection;
+    }
 }

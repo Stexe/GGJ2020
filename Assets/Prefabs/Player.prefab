@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0
-  rigidbody: {fileID: 5931433781299049205}
+  rb: {fileID: 5931433781299049205}
   boxCollider: {fileID: 3950987763156241696}
   speed: 6
   acceleration: 5
