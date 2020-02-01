@@ -15,7 +15,7 @@ public class ResourceAttractor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //TODO: this might be perf heavy? think about changing to find stuff every coupe of frames?
+        //TODO: this might be perf heavy? think about changing to find stuff every couple of frames?
         colliders = Physics2D.OverlapCircleAll(transform.position, distance, ~LayerMask.NameToLayer("Resource"));
         foreach(Collider2D collider in colliders) {
             if(collider.GetComponent<ResourceObject>() != null)

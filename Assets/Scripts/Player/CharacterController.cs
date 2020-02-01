@@ -25,6 +25,9 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     public float jumpHoldVelocityDecay = 2;
 
+    public GameObject jumpParticlesPrefab;
+    public GameObject landParticlesPrefab;
+
     private Rewired.Player player;
 
     private float horizontalInput;
@@ -80,6 +83,8 @@ public class CharacterController : MonoBehaviour
                 jumpHold = true;
                 isGrounded = false;
                 currentJumpHoldVelocity = jumpHoldVelocity;
+                //jump particles
+                if(jumpParticlesPrefab != null) Instantiate(jumpParticlesPrefab, transform.position, Quaternion.identity);
             }
             if (!jumpInput) jumpHold = false;
 
@@ -122,6 +127,10 @@ public class CharacterController : MonoBehaviour
         RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, boxCollider.size, 0, Vector2.down, 0.02f, 1 << LayerMask.NameToLayer("Ground"));
         if (boxCast.collider != null)
         {
+            if(!isGrounded)
+            {
+                if (landParticlesPrefab != null) Instantiate(landParticlesPrefab, transform.position, Quaternion.identity);
+            }
             isGrounded = true;
         } 
         else

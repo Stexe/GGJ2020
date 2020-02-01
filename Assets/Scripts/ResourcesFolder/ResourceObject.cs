@@ -7,6 +7,7 @@ public class ResourceObject : MonoBehaviour
     public enum ResourceType { Wood, Crystal, Metal };
 
     public ResourceType type;
+    public GameObject collectParticlesPrefab;
 
     private Rigidbody2D rb;
     /// <summary>
@@ -57,6 +58,7 @@ public class ResourceObject : MonoBehaviour
     /// </summary>
     public void Collect()
     {
+        if(collectParticlesPrefab != null) Instantiate(collectParticlesPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
