@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
@@ -15,7 +15,7 @@ public class CharacterController : MonoBehaviour
     /// <summary>
     /// The initial upward force impulse of a jump
     /// </summary>
-    public float jumpImpulse = 2;
+    public float jumpImpulse = 9;
     /// <summary>
     /// How much force is applied if the player continues to hold the jump button
     /// </summary>
@@ -27,6 +27,9 @@ public class CharacterController : MonoBehaviour
 
     public GameObject jumpParticlesPrefab;
     public GameObject landParticlesPrefab;
+
+	[SerializeField]
+	private float interactRadius = 1f;
 
     private Rewired.Player player;
 
@@ -137,6 +140,19 @@ public class CharacterController : MonoBehaviour
         {
             isGrounded = false;
         }
+
+
+		// Interact with breakable objects
+		if (interactInput)
+		{
+			Collider2D breakableCollider = Physics2D.OverlapCircle(transform.position, interactRadius, 1 << LayerMask.NameToLayer("Breakable"));
+			if (breakableCollider != null)
+			{
+				Breakable breakable = breakableCollider.GetComponent<Breakable>();
+				if (breakable != null)
+					breakable.Activate();
+			}
+		}
     }
 
     private void FixedUpdate()
