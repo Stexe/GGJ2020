@@ -26,7 +26,7 @@ PrefabInstance:
         type: 3}
       propertyPath: resourcePrefab
       value: 
-      objectReference: {fileID: 5877179111588581271, guid: 67709c6c8118d6e40ab27b4c1ecdd45e,
+      objectReference: {fileID: 3827646058090043747, guid: 0a83aec1714b441449ae5516fd0753c9,
         type: 3}
     - target: {fileID: 3959410713920849707, guid: 237cadb06e53e8b41b61ba0fd49d2c40,
         type: 3}
@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 3959410713920849710, guid: 237cadb06e53e8b41b61ba0fd49d2c40,
         type: 3}
       propertyPath: m_Name
-      value: Wood Bubble Variant
+      value: Wood Bubble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237cadb06e53e8b41b61ba0fd49d2c40, type: 3}

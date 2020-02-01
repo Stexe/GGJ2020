@@ -48,6 +48,7 @@ public class ResourceBubbleController : MonoBehaviour
 		while (count > resourceList.Count)
 		{
 			GameObject obj = Instantiate(resourcePrefab, transform.position, Quaternion.identity, transform);
+			
 			resourceList.Add(obj);
 		}
 	}

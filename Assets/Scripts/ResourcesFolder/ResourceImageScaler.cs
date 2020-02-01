@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResourceImageScaler : MonoBehaviour
 {
+
 	[SerializeField]
 	private float staticScale;
 
@@ -24,7 +25,7 @@ public class ResourceImageScaler : MonoBehaviour
 	}
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 		Vector3 parentScale = transform.parent.localScale;
 		Vector3 inverseParentScale = new Vector3(1/parentScale.x, 1/parentScale.y, 1/parentScale.z);
