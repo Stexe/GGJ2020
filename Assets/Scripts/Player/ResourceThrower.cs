@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,7 +39,26 @@ public class ResourceThrower : MonoBehaviour
     /// </summary>
     public float resourceCollectionDistance = 0.5f;
 
-    private CharacterController characterController;
+	[SerializeField]
+	private GameObject woodBubblePrefab;
+	[SerializeField]
+	private GameObject crystalBubblePrefab;
+	[SerializeField]
+	private GameObject metalBubblePrefab;
+	[SerializeField]
+	private Vector3 bubbleOffset;
+	public Vector3 bubbleOffsetGet
+	{
+		get => bubbleOffset;
+	}
+	[SerializeField]
+	private float bubbleFollowTightness;
+	public float bubbleFollowTightnessGet
+	{
+		get => bubbleFollowTightness;
+	}
+
+	private CharacterController characterController;
     private float throwTimer;
     private float throwDelay;
     private float throwDelayFalloffTimer;
@@ -56,6 +75,13 @@ public class ResourceThrower : MonoBehaviour
         resourceAmounts.Add(ResourceObject.ResourceType.Wood, 0);
         resourceAmounts.Add(ResourceObject.ResourceType.Crystal, 0);
         resourceAmounts.Add(ResourceObject.ResourceType.Metal, 0);
+
+		ResourceBubbleController woodBubble = Instantiate(woodBubblePrefab).GetComponent<ResourceBubbleController>();
+		woodBubble.resourceThrower = this;
+		ResourceBubbleController crystalBubble = Instantiate(crystalBubblePrefab).GetComponent<ResourceBubbleController>();
+		crystalBubble.resourceThrower = this;
+		ResourceBubbleController metalBubble = Instantiate(metalBubblePrefab).GetComponent<ResourceBubbleController>();
+		metalBubble.resourceThrower = this;
     }
 
     // Update is called once per frame

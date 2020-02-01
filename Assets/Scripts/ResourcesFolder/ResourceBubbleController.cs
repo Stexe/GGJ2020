@@ -5,18 +5,24 @@ using UnityEngine;
 public class ResourceBubbleController : MonoBehaviour
 {
 	[SerializeField]
-	private ResourceController.ResourceType type;
+	private ResourceObject.ResourceType type;
 
 	[SerializeField]
 	private int quantity;
 
 	[SerializeField]
-	private float baseRadius;
+	private float baseRadius = 0.5f;
+
 
 	[SerializeField]
 	private GameObject resourcePrefab;
 
+	public ResourceThrower resourceThrower
+	{
+		get; set;
+	}
 
+	private Sprite sprite;
 	private List<GameObject> resourceList;
 	private float radius;
 
@@ -24,15 +30,32 @@ public class ResourceBubbleController : MonoBehaviour
     void Start()
     {
 		resourceList = new List<GameObject>();
+		sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
+		if (resourceThrower != null)
+		{
+			quantity = resourceThrower.resourceAmounts[type];
+		}
+
 		radius = Mathf.Log(quantity + 1) + baseRadius;
 		transform.localScale = Vector3.one * radius;
 		UpdateResourceCount();
+		FollowTarget();
     }
+
+	void FollowTarget()
+	{
+		Vector3 targetPos;
+		if (resourceThrower != null)
+		{
+			targetPos = resourceThrower.transform.position + resourceThrower.bubbleOffsetGet;
+			transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * resourceThrower.bubbleFollowTightnessGet);
+		}
+	}
 
 	void UpdateResourceCount()
 	{
@@ -51,5 +74,13 @@ public class ResourceBubbleController : MonoBehaviour
 			
 			resourceList.Add(obj);
 		}
+	}
+
+	/**
+	 * Returns the radius in world space.
+	 */
+	public float GetRadius()
+	{
+		return radius * sprite.rect.width / sprite.pixelsPerUnit;
 	}
 }

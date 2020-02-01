@@ -3,7 +3,17 @@ guid: 1c6f428d558b7bc46a63736952a0b404
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - woodPrefab: {instanceID: 0}
+  - crystalPrefab: {instanceID: 0}
+  - metalPrefab: {instanceID: 0}
+  - selectedResource: {instanceID: 0}
+  - woodBubblePrefab: {fileID: 4525248730670980285, guid: add7df2b37e97da4a82e16df6e923932,
+      type: 3}
+  - crystalBubblePrefab: {fileID: 1012687775177679444, guid: 189cfe82b9faace48863ccf2e8b56043,
+      type: 3}
+  - metalBubblePrefab: {fileID: 4051447161360271789, guid: 288173bc06f327f44a576d38ea4e4df0,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -31,7 +31,7 @@ PrefabInstance:
         type: 3}
       propertyPath: resourcePrefab
       value: 
-      objectReference: {fileID: 9189909356323072844, guid: be630a8cbbb79d446b4cffca38dae8ba,
+      objectReference: {fileID: 8954652998774582395, guid: 6f58582f4d0b3804b85e0566281d9672,
         type: 3}
     - target: {fileID: 3959410713920849707, guid: 237cadb06e53e8b41b61ba0fd49d2c40,
         type: 3}
@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 3959410713920849710, guid: 237cadb06e53e8b41b61ba0fd49d2c40,
         type: 3}
       propertyPath: m_Name
-      value: Crystal Bubble Variant
+      value: Crystal Bubble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237cadb06e53e8b41b61ba0fd49d2c40, type: 3}
