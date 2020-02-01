@@ -515,12 +515,12 @@ PrefabInstance:
     - target: {fileID: 7868711988624353848, guid: 856b047dac412104e99e5250b53c1c5c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000028662658
+      value: 0.000028690361
       objectReference: {fileID: 0}
     - target: {fileID: 7868711988624353848, guid: 856b047dac412104e99e5250b53c1c5c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.368504e-13
+      value: -4.372726e-13
       objectReference: {fileID: 0}
     - target: {fileID: 7868711988624353848, guid: 856b047dac412104e99e5250b53c1c5c,
         type: 3}
@@ -540,12 +540,12 @@ PrefabInstance:
     - target: {fileID: 7868711990089650145, guid: 856b047dac412104e99e5250b53c1c5c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000028662658
+      value: 0.000028690361
       objectReference: {fileID: 0}
     - target: {fileID: 7868711990089650145, guid: 856b047dac412104e99e5250b53c1c5c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.368504e-13
+      value: -4.372726e-13
       objectReference: {fileID: 0}
     - target: {fileID: 7868711990089650145, guid: 856b047dac412104e99e5250b53c1c5c,
         type: 3}
@@ -847,7 +847,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!224 &2059116433
 RectTransform:
