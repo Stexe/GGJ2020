@@ -11,7 +11,7 @@ public class ResourceAttractor : MonoBehaviour
     /// </summary>
     public bool ignoreThrownAttractCooldown = false;
 
-    public ResourceHolder resourceHolder;
+    private ResourceHolder resourceHolder;
 
     private Collider2D[] colliders;
 

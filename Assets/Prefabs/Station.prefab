@@ -75,7 +75,6 @@ MonoBehaviour:
   distance: 3
   strength: 80
   ignoreThrownAttractCooldown: 1
-  resourceHolder: {fileID: 0}
 --- !u!114 &8347058291227273647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4e7fd1eac2bc4fb59d9443c4b0a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceCollectionDistance: 0.5
+  resourceCollectionDistance: 0.4
   ignoreThrownCollectCooldown: 1
   onCollect:
     m_PersistentCalls:

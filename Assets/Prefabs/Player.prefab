@@ -55,11 +55,12 @@ MonoBehaviour:
   speed: 6
   acceleration: 5
   deceleration: 7
-  jumpImpulse: 7
+  jumpImpulse: 9
   jumpHoldVelocity: 7
   jumpHoldVelocityDecay: 7
   jumpParticlesPrefab: {fileID: 0}
   landParticlesPrefab: {fileID: 0}
+  interactRadius: 1
 --- !u!114 &6504534680738699052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +92,8 @@ MonoBehaviour:
     type: 3}
   metalBubblePrefab: {fileID: 4051447161360271789, guid: 288173bc06f327f44a576d38ea4e4df0,
     type: 3}
-  bubbleOffset: {x: 0, y: 0, z: 0}
-  bubbleFollowTightness: 0
+  bubbleOffset: {x: -1, y: 1, z: 0}
+  bubbleFollowTightness: 12
 --- !u!114 &255718398231654552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceCollectionDistance: 0.3
+  ignoreThrownCollectCooldown: 0
   onCollect:
     m_PersistentCalls:
       m_Calls:
@@ -135,6 +137,7 @@ MonoBehaviour:
   distance: 4
   strength: 20
   ignoreThrownAttractCooldown: 0
+  resourceHolder: {fileID: 0}
 --- !u!50 &5931433781299049205
 Rigidbody2D:
   serializedVersion: 4
