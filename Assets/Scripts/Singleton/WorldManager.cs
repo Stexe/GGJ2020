@@ -69,4 +69,9 @@ public class WorldManager : Singleton<WorldManager>
         healthBar.localScale = new Vector2(robotHealth / robotMaxHealth, 1);
     }
 
+    public void AddScore(int amount)
+    {
+        currentScore += amount;
+    }
+
 }

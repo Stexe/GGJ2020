@@ -25,6 +25,7 @@ public abstract class EnemyBase : MonoBehaviour
 	protected virtual void Death()
 	{
 		Destroy(gameObject);
+		WorldManager.Instance.AddScore(score);
 	}
 
 
