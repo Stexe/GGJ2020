@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5813969162289661304
+--- !u!114 &2822896316343158053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1536944857653524927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d1c543c69c3a3449db4a75c0a20523, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ae455268934a574e85e95a649fd9b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   robot: {fileID: 0}
-  speed: 2
+  speed: 0
+  fireball: {fileID: 7595778155031690591, guid: 3e5c52900ca9f25449683ddab6fc8a14,
+    type: 3}
+  laser: {fileID: 514090034593046944, guid: 4d054855efd7d8e4bb7cfd8ac720abd6, type: 3}
+  shield: {fileID: 0}
+  fireballCooldown: 0.1
+  laserCooldown: 2
+  fireballSpeed: 8
+  laserSpeed: 13
+  spawnPosition: {fileID: 0}
+  cooldownTimer: 0
+  fireballConsumptionSpeed: 2
+  laserConsumptionSpeed: 4
+  shieldConsumptionSpeed: 1
 --- !u!1 &4859094320198255169
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6920468923707113618}
   m_Layer: 0
-  m_Name: Station_Wheel
+  m_Name: Station_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +52,7 @@ Transform:
   m_GameObject: {fileID: 4859094320198255169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.97499996, y: 1, z: 1}
   m_Children:
   - {fileID: 2838305308796962112}
   - {fileID: 1536944857653524914}

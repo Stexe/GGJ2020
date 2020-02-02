@@ -14,7 +14,7 @@ public class FlyingEnemy : EnemyBase
 	float horiOffset = 2f;
 
 	[SerializeField]
-	Collider2D target;
+	Transform target;
 
 	float baseHeight = 3f;
 	Vector2 perlinDirection;
@@ -22,7 +22,7 @@ public class FlyingEnemy : EnemyBase
 	// Start is called before the first frame update
 	void Start()
     {
-		baseHeight = Random.Range(2f, 4f);
+		baseHeight = transform.position.y;
 		//heightFreq = Random.Range(0.5f, 2f);
 		//heightAmp = Random.Range(0.25f, 4f);
 		perlinDirection = new Vector2(Random.value, Random.value).normalized;
@@ -36,13 +36,13 @@ public class FlyingEnemy : EnemyBase
 
 	private void MoveEnemy()
 	{
-		transform.position = new Vector3(CalculateHoriPos(), CalculateHeight(), transform.position.z);
+		transform.position = new Vector3(CalculateHoriPos(), baseHeight + CalculateHeight(), transform.position.z);
 	}
 
 	private float CalculateHoriPos()
 	{
 		//transform.position.x - Time.deltaTime * speed;
-		float finalX = target.bounds.max.x + horiOffset;
+		float finalX = target.position.x + horiOffset;
 		float direction = Mathf.Sign(finalX - transform.position.x);
 		float lerpDist = Mathf.Abs(Mathf.Lerp(transform.position.x, finalX, Time.deltaTime) - transform.position.x);
 		float dist = Mathf.Min(speed * Time.deltaTime, lerpDist);

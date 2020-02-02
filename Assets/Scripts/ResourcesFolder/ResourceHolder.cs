@@ -40,7 +40,7 @@ public class ResourceHolder : MonoBehaviour
         {
             return ResourceObject.ResourceType.Wood;
         }
-        if (resourceAmounts[ResourceObject.ResourceType.Crystal] >= resourceAmounts[ResourceObject.ResourceType.Wood] && resourceAmounts[ResourceObject.ResourceType.Wood] >= resourceAmounts[ResourceObject.ResourceType.Metal])
+        if (resourceAmounts[ResourceObject.ResourceType.Crystal] >= resourceAmounts[ResourceObject.ResourceType.Wood] && resourceAmounts[ResourceObject.ResourceType.Crystal] >= resourceAmounts[ResourceObject.ResourceType.Metal])
         {
             return ResourceObject.ResourceType.Crystal;
         }

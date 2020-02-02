@@ -25,6 +25,7 @@ public class Station_Wheel : MonoBehaviour
         {
             station.ConsumeTotalResourceAmount(1 * Time.deltaTime);
             robot.transform.Translate(speed*Time.deltaTime, 0, 0);
+            WorldManager.Instance.currentScore += speed * Time.deltaTime;
         }
         else
         {

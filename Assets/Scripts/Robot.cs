@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
+    public float speed = 3;
 
-    void OnTriggerEnter2D(Collider2D col)
+
+    // Update is called once per frame
+    void Update()
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Ground") || col.gameObject.layer == LayerMask.NameToLayer("Breakable"))
-        {
-            Destroy(col.gameObject);
-        }
+        transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 }
