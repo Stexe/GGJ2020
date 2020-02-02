@@ -31,7 +31,9 @@ public class CharacterController : MonoBehaviour
 
     public AudioClip audioJump;
 
-	[SerializeField]
+    public LayerMask groundLayers;
+
+    [SerializeField]
 	private float interactRadius = 1f;
 
     private Rewired.Player player;
@@ -144,7 +146,7 @@ public class CharacterController : MonoBehaviour
         currentJumpHoldVelocity = Mathf.Max(0, currentJumpHoldVelocity - jumpHoldVelocityDecay * Time.deltaTime);
 
         //are we grounded?
-        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, boxCollider.size.y/2), 0, Vector2.down, boxCollider.size.y / 2 + 0.02f, 1 << LayerMask.NameToLayer("Ground"));
+        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, boxCollider.size.y/2), 0, Vector2.down, boxCollider.size.y / 2 + 0.1f, groundLayers);
         if (boxCast.collider != null)
         {
             if(!isGrounded)
@@ -165,7 +167,7 @@ public class CharacterController : MonoBehaviour
 			Collider2D breakableCollider = Physics2D.OverlapCircle(transform.position, interactRadius, 1 << LayerMask.NameToLayer("Breakable"));
 			if (breakableCollider != null)
 			{
-				Breakable breakable = breakableCollider.GetComponent<Breakable>();
+				Breakable breakable = breakableCollider.GetComponentInParent<Breakable>();
 				if (breakable != null)
 					breakable.Activate();
 			}
@@ -194,7 +196,7 @@ public class CharacterController : MonoBehaviour
         RaycastHit hit;
 
         // Check if the body's current velocity will result in a collision
-        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, boxCollider.size.y * 0.9f), 0, horizontalMove, distance, 1 << LayerMask.NameToLayer("Ground"));
+        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, boxCollider.size.y * 0.9f), 0, horizontalMove, distance, groundLayers);
         if(boxCast.collider != null)
         {
             // If so, stop the movement
