@@ -103,6 +103,7 @@ public class Breakable : MonoBehaviour
 		sprite.color = hurtColor;
 		ResourceObject resource = Instantiate(resourcePrefab, spawnPoint.transform.position, Quaternion.identity).GetComponent<ResourceObject>();
 		resource.SetPreventAttractionTimer(0.3f);
+		resource.spawningCollider = GetComponentInChildren<Collider2D>();
 		float angle = Random.value - 0.5f * angleRange;
 		Vector2 direction = new Vector2(Mathf.Sin(angle + 90f), Mathf.Cos(angle + 90f));
 		resource.GetComponent<Rigidbody2D>().AddForce(direction * spawnForce, ForceMode2D.Impulse);

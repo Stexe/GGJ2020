@@ -8,6 +8,7 @@ public class ResourceObject : MonoBehaviour
 
     public ResourceType type;
     public GameObject collectParticlesPrefab;
+    public Collider2D spawningCollider;
 
     private Rigidbody2D rb;
     /// <summary>
@@ -43,6 +44,17 @@ public class ResourceObject : MonoBehaviour
 			float opacity = Mathf.Sqrt(lifetime / 3f);
 			sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, opacity);
 		}
+        if (spawningCollider != null)
+        {
+            if (!IsAttractable())
+            {
+                Physics2D.IgnoreCollision(spawningCollider, GetComponent<Collider2D>());
+            }
+            else
+            {
+                Physics2D.IgnoreCollision(spawningCollider, GetComponent<Collider2D>(), false);
+            }
+        }
     }
 
     private void FixedUpdate()
