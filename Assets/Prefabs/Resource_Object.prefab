@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1623f97d92c1e774f9564638c13207ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  collectParticlesPrefab: {fileID: 0}
+  spawningCollider: {fileID: 0}
+  lifetime: 15
 --- !u!61 &6589894411008919749
 BoxCollider2D:
   m_ObjectHideFlags: 0
