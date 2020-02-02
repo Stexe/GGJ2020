@@ -10,27 +10,27 @@ PrefabInstance:
     - target: {fileID: 5661071368922990066, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.8962264
+      value: 0.3962264
       objectReference: {fileID: 0}
     - target: {fileID: 5661071368922990066, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.1986917
+      value: 0.3962264
       objectReference: {fileID: 0}
     - target: {fileID: 5661071368922990066, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.7674602
+      value: 0.3962264
       objectReference: {fileID: 0}
     - target: {fileID: 8410249065276973824, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: m_Name
-      value: Big Flying Enemy
+      value: Big Shield Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8410249065276973825, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: health
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8410249065276973825, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
@@ -45,12 +45,37 @@ PrefabInstance:
     - target: {fileID: 8410249065276973825, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: heightAmp
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8410249065276973825, guid: c40421945206224448fb8ee0230f6806,
         type: 3}
       propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410249065276973825, guid: c40421945206224448fb8ee0230f6806,
+        type: 3}
+      propertyPath: onlyDestroyedByShield
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410249065276973825, guid: c40421945206224448fb8ee0230f6806,
+        type: 3}
+      propertyPath: heightFreq
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410249065276973826, guid: c40421945206224448fb8ee0230f6806,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410249065276973826, guid: c40421945206224448fb8ee0230f6806,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410249065276973826, guid: c40421945206224448fb8ee0230f6806,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.31132078
       objectReference: {fileID: 0}
     - target: {fileID: 8410249065276973827, guid: c40421945206224448fb8ee0230f6806,
         type: 3}

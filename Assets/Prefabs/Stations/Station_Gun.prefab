@@ -25,7 +25,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 0}
   cooldownTimer: 0
   fireballConsumptionSpeed: 2
-  laserConsumptionSpeed: 4
+  laserConsumptionSpeed: 2
   shieldConsumptionSpeed: 1
 --- !u!1 &4859094320198255169
 GameObject:

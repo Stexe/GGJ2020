@@ -10,6 +10,8 @@ public abstract class EnemyBase : MonoBehaviour
 	[SerializeField]
 	protected int score;
 
+	public bool onlyDestroyedByShield = false;
+
 	/// <summary>
 	/// How much damage this enemy does to the robot
 	/// </summary>
