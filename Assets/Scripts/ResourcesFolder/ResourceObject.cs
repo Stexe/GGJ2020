@@ -8,6 +8,7 @@ public class ResourceObject : MonoBehaviour
 
     public ResourceType type;
     public GameObject collectParticlesPrefab;
+    public Collider2D spawningCollider;
 
     private Rigidbody2D rb;
     /// <summary>
@@ -27,6 +28,18 @@ public class ResourceObject : MonoBehaviour
         if(preventAttractionTimer > 0)
         {
             preventAttractionTimer -= Time.deltaTime;
+        }
+
+        if (spawningCollider != null)
+        {
+            if (!IsAttractable())
+            {
+                Physics2D.IgnoreCollision(spawningCollider, GetComponent<Collider2D>());
+            }
+            else
+            {
+                Physics2D.IgnoreCollision(spawningCollider, GetComponent<Collider2D>(), false);
+            }
         }
     }
 
