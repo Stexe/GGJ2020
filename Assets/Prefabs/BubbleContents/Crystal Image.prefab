@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticScale: 0.5
-  noiseMagnitude: 0.4
   maxAngle: 70
 --- !u!1001 &7907754438753592780
 PrefabInstance:
@@ -54,6 +53,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7242315450359436702}
     m_Modifications:
+    - target: {fileID: 7084717611384786361, guid: be630a8cbbb79d446b4cffca38dae8ba,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 210
+      objectReference: {fileID: 0}
     - target: {fileID: 8803071946978172742, guid: be630a8cbbb79d446b4cffca38dae8ba,
         type: 3}
       propertyPath: m_LocalPosition.x
