@@ -41,6 +41,7 @@ public class Pause : MonoBehaviour {
 
     public void QuitGame()
     {
+        SceneManager.LoadScene("Main");
         Application.Quit();
     }
 

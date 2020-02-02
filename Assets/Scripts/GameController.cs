@@ -11,7 +11,14 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(LaterStart(0.5f));
 
+    }
+
+    IEnumerator LaterStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+       /*
         FunctionPeriodic.Create(() =>
         {
             if (WorldManager.Instance.robotHealth > 0.001f)
@@ -32,6 +39,6 @@ public class GameController : MonoBehaviour
                 }
             }
         }, .03f);
+        */
     }
-
 }
