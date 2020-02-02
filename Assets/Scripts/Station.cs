@@ -26,7 +26,10 @@ public class Station : MonoBehaviour
         amount += partialResourceConsumption;
         while(amount >= 1)
         {
-            if (!resourceHolder.HasResources()) break;
+            if (!resourceHolder.HasResources()) {
+                amount = 0;
+                break; 
+            }
             ConsumeNextResource();
             amount--;
         }

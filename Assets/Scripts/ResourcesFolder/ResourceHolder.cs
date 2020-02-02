@@ -54,6 +54,6 @@ public class ResourceHolder : MonoBehaviour
 
     public bool HasResources()
     {
-        return resourceAmounts[ResourceObject.ResourceType.Wood] != 0 || resourceAmounts[ResourceObject.ResourceType.Crystal] != 0 || resourceAmounts[ResourceObject.ResourceType.Metal] != 0;
+        return resourceAmounts[ResourceObject.ResourceType.Wood] > 0 || resourceAmounts[ResourceObject.ResourceType.Crystal] > 0 || resourceAmounts[ResourceObject.ResourceType.Metal] > 0;
     }
 }

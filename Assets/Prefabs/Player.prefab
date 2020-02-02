@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6702464856696714578}
   - component: {fileID: 5931433781299049205}
   - component: {fileID: 3950987763156241696}
+  - component: {fileID: 8369082761809956895}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -53,13 +54,14 @@ MonoBehaviour:
   rb: {fileID: 5931433781299049205}
   boxCollider: {fileID: 3950987763156241696}
   speed: 6
-  acceleration: 5
+  acceleration: 8
   deceleration: 7
-  jumpImpulse: 9
-  jumpHoldVelocity: 7
-  jumpHoldVelocityDecay: 7
+  jumpImpulse: 8
+  jumpHoldVelocity: 28
+  jumpHoldVelocityDecay: 45
   jumpParticlesPrefab: {fileID: 0}
   landParticlesPrefab: {fileID: 0}
+  audioJump: {fileID: 8300000, guid: aab6b9122e325874994b59d697936f1f, type: 3}
   interactRadius: 1
 --- !u!114 &6504534680738699052
 MonoBehaviour:
@@ -86,6 +88,7 @@ MonoBehaviour:
   spinMax: 0.5
   strength: 13
   strengthVariation: 4
+  shootRes: {fileID: 8300000, guid: 59a248b35a2b4ab4ba359324a85aeb09, type: 3}
   woodBubblePrefab: {fileID: 4525248730670980285, guid: add7df2b37e97da4a82e16df6e923932,
     type: 3}
   crystalBubblePrefab: {fileID: 1012687775177679444, guid: 189cfe82b9faace48863ccf2e8b56043,
@@ -137,7 +140,6 @@ MonoBehaviour:
   distance: 4
   strength: 20
   ignoreThrownAttractCooldown: 0
-  resourceHolder: {fileID: 0}
 --- !u!50 &5931433781299049205
 Rigidbody2D:
   serializedVersion: 4
@@ -153,7 +155,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.9
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -185,6 +187,102 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 1}
   m_EdgeRadius: 0
+--- !u!82 &8369082761809956895
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931433781299049206}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5931433782687988380
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 5931433782687988380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.6, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 5931433781299049204}
   m_RootOrder: 0
@@ -252,8 +350,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9e5bc0ff73219dd4dbf19d928c0b867a, type: 3}
+  m_SortingOrder: 180
+  m_Sprite: {fileID: 21300000, guid: a5ec99c94c6ba334e91810ccd56a02cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

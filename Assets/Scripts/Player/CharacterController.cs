@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
+[RequireComponent(typeof(ResourceThrower))]
 public class CharacterController : MonoBehaviour
 {
 
@@ -27,6 +28,8 @@ public class CharacterController : MonoBehaviour
 
     public GameObject jumpParticlesPrefab;
     public GameObject landParticlesPrefab;
+
+    public AudioClip audioJump;
 
 	[SerializeField]
 	private float interactRadius = 1f;
@@ -53,6 +56,8 @@ public class CharacterController : MonoBehaviour
     private bool isGrounded = false;
     private Vector2 aimDirection = new Vector2(1, 0);
 
+    private ResourceThrower resourceThrower;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +65,8 @@ public class CharacterController : MonoBehaviour
         //get the player!
         player = ReInput.players.GetPlayer(playerNum);
         if (player == null) Debug.LogError("Player " + playerNum + " is null");
+        resourceThrower = GetComponent<ResourceThrower>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -86,11 +93,21 @@ public class CharacterController : MonoBehaviour
                 jumpHold = true;
                 isGrounded = false;
                 currentJumpHoldVelocity = jumpHoldVelocity;
+                audioSource.PlayOneShot(audioJump);
                 //jump particles
                 if(jumpParticlesPrefab != null) Instantiate(jumpParticlesPrefab, transform.position, Quaternion.identity);
             }
             if (!jumpInput) jumpHold = false;
 
+            //swap resources
+            if(player.GetButtonDown("SwapRight"))
+            {
+                resourceThrower.SwapResourceRight();
+            }
+            if (player.GetButtonDown("SwapLeft"))
+            {
+                resourceThrower.SwapResourceLeft();
+            }
         }
 
         //deceleration
@@ -127,7 +144,7 @@ public class CharacterController : MonoBehaviour
         currentJumpHoldVelocity = Mathf.Max(0, currentJumpHoldVelocity - jumpHoldVelocityDecay * Time.deltaTime);
 
         //are we grounded?
-        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, boxCollider.size, 0, Vector2.down, 0.02f, 1 << LayerMask.NameToLayer("Ground"));
+        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, boxCollider.size.y/2), 0, Vector2.down, boxCollider.size.y / 2 + 0.02f, 1 << LayerMask.NameToLayer("Ground"));
         if (boxCast.collider != null)
         {
             if(!isGrounded)
@@ -177,7 +194,7 @@ public class CharacterController : MonoBehaviour
         RaycastHit hit;
 
         // Check if the body's current velocity will result in a collision
-        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, boxCollider.size, 0, horizontalMove, distance, 1 << LayerMask.NameToLayer("Ground"));
+        RaycastHit2D boxCast = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, boxCollider.size.y * 0.9f), 0, horizontalMove, distance, 1 << LayerMask.NameToLayer("Ground"));
         if(boxCast.collider != null)
         {
             // If so, stop the movement

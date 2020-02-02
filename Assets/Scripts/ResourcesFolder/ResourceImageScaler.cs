@@ -38,7 +38,6 @@ public class ResourceImageScaler : MonoBehaviour
 		if (bubbleController != null)
 			noiseMag = bubbleController.GetRadius();
 
-		Debug.Log(noiseMag);
 		transform.position = transform.parent.position + (newPos * noiseMag);
 		transform.rotation = Quaternion.Euler(0f, 0f, newPos.x * maxAngle);
     }
