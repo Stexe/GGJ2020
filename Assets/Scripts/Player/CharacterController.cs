@@ -164,8 +164,8 @@ public class CharacterController : MonoBehaviour
 		// Interact with breakable objects
 		if (interactInput)
 		{
-			Collider2D breakableCollider = Physics2D.OverlapCircle(transform.position, interactRadius, 1 << LayerMask.NameToLayer("Breakable"));
-			if (breakableCollider != null)
+			Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, interactRadius, 1 << LayerMask.NameToLayer("Breakable"));
+			foreach (Collider2D breakableCollider in colliders)
 			{
 				Breakable breakable = breakableCollider.GetComponentInParent<Breakable>();
 				if (breakable != null)

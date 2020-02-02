@@ -56,7 +56,7 @@ public class ResourceBubbleController : MonoBehaviour
 		Vector3 targetPos;
 		if (resourceThrower != null)
 		{
-			float zOffset = (resourceThrower.selectedResource.type.Equals(this.type)) ? 1f : 2f;
+			float zOffset = (resourceThrower.selectedResource.type.Equals(this.type)) ? 1f : 3f;
 			targetPos = resourceThrower.transform.position + resourceThrower.bubbleOffsetGet + new Vector3(0f, 0f, zOffset);
 			transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * resourceThrower.bubbleFollowTightnessGet);
 		}
