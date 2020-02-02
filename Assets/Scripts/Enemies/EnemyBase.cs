@@ -10,7 +10,12 @@ public abstract class EnemyBase : MonoBehaviour
 	[SerializeField]
 	protected int score;
 
-	protected abstract void DecreaseHealth(int damage);
+	/// <summary>
+	/// How much damage this enemy does to the robot
+	/// </summary>
+	public int damage;
+
+	public abstract void DecreaseHealth(int damage);
 
 	protected virtual void DecrementHealth()
 	{

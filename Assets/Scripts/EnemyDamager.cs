@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamager : MonoBehaviour
 {
 
-    public float damage = 1;
+    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +17,14 @@ public class EnemyDamager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.GetComponent<EnemyBase>() != null)
+        {
+            col.GetComponent<EnemyBase>().DecreaseHealth(damage);
+            Destroy(gameObject);
+        }
     }
 }

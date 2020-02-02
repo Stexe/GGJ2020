@@ -18,6 +18,9 @@ public class WorldManager : Singleton<WorldManager>
     public float robotHealth = 1.0f;
     public float endTime = 270.0f;
     float endTimeRound;
+    float robotMaxHealth;
+
+    public Transform healthBar;
 
     public Text globalHUDText;
     public Text endTimeText;
@@ -34,6 +37,7 @@ public class WorldManager : Singleton<WorldManager>
     public void Start()
     {
         StartCoroutine(LateStart(0.1f));
+        robotMaxHealth = robotHealth;
     }
 
     IEnumerator LateStart(float waitTime)
@@ -61,6 +65,8 @@ public class WorldManager : Singleton<WorldManager>
             gameOverText.gameObject.SetActive(true);
         }
 
+
+        healthBar.localScale = new Vector2(robotHealth / robotMaxHealth, 1);
     }
 
 }
