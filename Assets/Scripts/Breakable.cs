@@ -58,7 +58,10 @@ public class Breakable : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		sprite.color = Color.Lerp(sprite.color, defaultColor, colorFade * Time.deltaTime);
+		if (sprite != null)
+			sprite.color = Color.Lerp(sprite.color, defaultColor, colorFade * Time.deltaTime);
+		else
+			Destroy(gameObject);
 	}
 
 	private void LateUpdate()

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Robot
+  - PlayerDeath
   layers:
   - Default
   - TransparentFX
