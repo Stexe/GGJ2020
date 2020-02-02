@@ -94,6 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   quantity: 0
-  baseRadius: 0.5
+  baseRadius: 1
   resourcePrefab: {fileID: 8307585493891526886, guid: daf173b5637ad4843b3e3017a41c24a9,
     type: 3}

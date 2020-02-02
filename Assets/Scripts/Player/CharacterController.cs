@@ -132,7 +132,7 @@ public class CharacterController : MonoBehaviour
                 currentSpeed += acceleration * Time.deltaTime;
                 if (currentSpeed >= 1) currentSpeed = 1;
             }
-        }
+		}
         if (horizontalInput < 0)
         {
             if (currentSpeed > -1)
@@ -239,4 +239,17 @@ public class CharacterController : MonoBehaviour
     {
         return aimDirection;
     }
+
+	private void Death()
+	{
+		RespawnManager.Instance.ScheduleRespawn(this);
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.tag.Equals("PlayerDeath"))
+		{
+			Death();
+		}
+	}
 }

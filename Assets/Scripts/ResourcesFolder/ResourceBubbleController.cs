@@ -44,15 +44,20 @@ public class ResourceBubbleController : MonoBehaviour
 		radius = Mathf.Log(quantity + 1) + baseRadius;
 		transform.localScale = Vector3.one * radius;
 		UpdateResourceCount();
-		FollowTarget();
     }
+
+	private void FixedUpdate()
+	{
+		FollowTarget();
+	}
 
 	void FollowTarget()
 	{
 		Vector3 targetPos;
 		if (resourceThrower != null)
 		{
-			targetPos = resourceThrower.transform.position + resourceThrower.bubbleOffsetGet;
+			float zOffset = (resourceThrower.selectedResource.type.Equals(this.type)) ? 1f : 2f;
+			targetPos = resourceThrower.transform.position + resourceThrower.bubbleOffsetGet + new Vector3(0f, 0f, zOffset);
 			transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * resourceThrower.bubbleFollowTightnessGet);
 		}
 	}
