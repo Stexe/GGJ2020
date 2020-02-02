@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2995151556925434725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4454567163508278171}
+  - component: {fileID: 5758475451733706994}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4454567163508278171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995151556925434725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.883007, y: 12.627447, z: -0.7109375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5758475451733706994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995151556925434725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6287308b709324dadb742ac4541fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundObjects:
+  - prefab: {fileID: 4779960725957245265, guid: 41f9f67e88c6b8a40a242159978c1fb0,
+      type: 3}
+  - prefab: {fileID: 339412726078850246, guid: dc189c7331ef717488192359349d23b7, type: 3}
+  - prefab: {fileID: 8746050199499408257, guid: e736e06d4dec1494e8c83229b3892c5e,
+      type: 3}
+  - prefab: {fileID: 2478838523939082697, guid: 149d3be2326a549498d0b02f0fdb7b5b,
+      type: 3}
+  - prefab: {fileID: 5335499169748218467, guid: 4029d9d4601ca9149afcbcbf0afc3316,
+      type: 3}
+  skyObjects:
+  - prefab: {fileID: 2726871958950722954, guid: dabbae451f5fb234084a72e8bddbf879,
+      type: 3}
+  - prefab: {fileID: 3910386340561412337, guid: 443a9abdb43c5de4a9a6994ee3fab1bd,
+      type: 3}
+  - prefab: {fileID: 4095914169413123839, guid: 56f6603225b7b4f4aa065ce395989c1b,
+      type: 3}

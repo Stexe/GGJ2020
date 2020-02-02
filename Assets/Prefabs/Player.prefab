@@ -64,7 +64,7 @@ MonoBehaviour:
   audioJump: {fileID: 8300000, guid: aab6b9122e325874994b59d697936f1f, type: 3}
   groundLayers:
     serializedVersion: 2
-    m_Bits: 4608
+    m_Bits: 12800
   interactRadius: 1
 --- !u!114 &6504534680738699052
 MonoBehaviour:
@@ -199,7 +199,8 @@ AudioSource:
   m_GameObject: {fileID: 5931433781299049206}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243848603982368122, guid: 5e4ebc2e87c7b474a8002e24b615a5a7,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

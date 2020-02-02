@@ -23,7 +23,7 @@ public class Station_Wheel : MonoBehaviour
     {
         if (resourceHolder.HasResources())
         {
-            station.ConsumeTotalResourceAmount(4 * Time.deltaTime);
+            station.ConsumeTotalResourceAmount(1 * Time.deltaTime);
             robot.transform.Translate(speed*Time.deltaTime, 0, 0);
         }
         else

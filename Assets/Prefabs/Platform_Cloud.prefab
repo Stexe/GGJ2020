@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3898112738810475685}
   - component: {fileID: 6219079924625512829}
   - component: {fileID: 4071235704073058555}
-  - component: {fileID: 50263011941741786}
+  - component: {fileID: 50896545807726096}
   m_Layer: 9
-  m_Name: Platform
+  m_Name: Platform_Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &50263011941741786
+--- !u!50 &50896545807726096
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
