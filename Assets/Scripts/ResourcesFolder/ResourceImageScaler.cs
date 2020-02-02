@@ -14,10 +14,12 @@ public class ResourceImageScaler : MonoBehaviour
 	private ResourceBubbleController bubbleController;
 	private Vector2 perlinDirectionX;
 	private Vector2 perlinDirectionY;
+	private Renderer renderer;
 
 	// Start is called before the first frame update
 	void Start()
     {
+		renderer = GetComponentInChildren<Renderer>();
 		perlinDirectionX = new Vector2(Random.value, Random.value).normalized;
 		perlinDirectionY = new Vector2(Random.value, Random.value).normalized;
 		bubbleController = transform.parent.GetComponent<ResourceBubbleController>();
@@ -41,4 +43,9 @@ public class ResourceImageScaler : MonoBehaviour
 		transform.position = transform.parent.position + (newPos * noiseMag);
 		transform.rotation = Quaternion.Euler(0f, 0f, newPos.x * maxAngle);
     }
+
+	public void SetSortingOrder(int sortingOrder)
+	{
+		renderer.sortingOrder = sortingOrder;
+	}
 }

@@ -23,13 +23,15 @@ public class ResourceBubbleController : MonoBehaviour
 	}
 
 	private Sprite sprite;
-	private List<GameObject> resourceList;
+	private Renderer renderer;
+	private List<ResourceImageScaler> resourceList;
 	private float radius;
 
     // Start is called before the first frame update
     void Start()
     {
-		resourceList = new List<GameObject>();
+		resourceList = new List<ResourceImageScaler>();
+		renderer = GetComponent<Renderer>();
 		sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
@@ -56,8 +58,11 @@ public class ResourceBubbleController : MonoBehaviour
 		Vector3 targetPos;
 		if (resourceThrower != null)
 		{
-			float zOffset = (resourceThrower.selectedResource.type.Equals(this.type)) ? 1f : 3f;
-			targetPos = resourceThrower.transform.position + resourceThrower.bubbleOffsetGet + new Vector3(0f, 0f, zOffset);
+			//float zOffset = (resourceThrower.selectedResource.type.Equals(this.type)) ? 1f : 3f;
+			targetPos = resourceThrower.transform.position + resourceThrower.bubbleOffsetGet;
+			renderer.sortingOrder = (resourceThrower.selectedResource.type.Equals(this.type)) ? 210 : 200;
+			foreach (ResourceImageScaler resourceImg in resourceList)
+				resourceImg.SetSortingOrder(renderer.sortingOrder + 5);
 			transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * resourceThrower.bubbleFollowTightnessGet);
 		}
 	}
@@ -68,16 +73,16 @@ public class ResourceBubbleController : MonoBehaviour
 		// Case: there are too many resources displayed in the bubble and some of them must be destroyed.
 		while (count < resourceList.Count && resourceList.Count > 0)
 		{
-			GameObject obj = resourceList[0];
+			ResourceImageScaler img = resourceList[0];
 			resourceList.RemoveAt(0);
-			Destroy(obj);
+			Destroy(img.gameObject);
 		}
 		// Case: There are too few resources displayed in the bubble, and we need to create some new ones.
 		while (count > resourceList.Count)
 		{
 			GameObject obj = Instantiate(resourcePrefab, transform.position, Quaternion.identity, transform);
-			
-			resourceList.Add(obj);
+			ResourceImageScaler img = obj.GetComponent<ResourceImageScaler>();
+			resourceList.Add(img);
 		}
 	}
 
